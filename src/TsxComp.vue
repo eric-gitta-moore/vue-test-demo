@@ -10,14 +10,13 @@ export default defineComponent({
 
         return () => (
             <div>
-                {/**
-                  * ts error 2322 
-                  * 不能将类型“{ "v-model": string; }” 分配给类型“IntrinsicAttributes & { readonly modelValue: string ...
-                  * but it render ok
+                {/*
+                    Property 'onConfirmClick' does not exist on type 'IntrinsicAttributes & Partial<{}> & Omit<{ readonly modelValue: string; readonly "onUpdate:modelValue"?: ((value: string) => any) | undefined; readonly "onConfirm-click"?: (() => any) | undefined; } & VNodeProps & AllowedComponentProps & ComponentCustomProps, never>'. Did you mean '"onConfirm-click"'?ts(2322)
                   */}
-                <TestComp v-model={msg.value} />
+                <TestComp onConfirmClick={console.log(1)} />
+                <TestComp onConfirm-click={console.log(2)} />
 
-               { /** it works */ }
+                { /** it works */}
                 <TestTsxComp v-model={msg.value} />
             </div>
         )

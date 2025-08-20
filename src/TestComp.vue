@@ -7,6 +7,7 @@ const props = defineProps<{
 
 const emit = defineEmits<{
   'update:modelValue': [value: string]
+  'confirm-click': []
 }>()
 
 const value = computed({
